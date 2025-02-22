@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Predictions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .prediction-box {
+            border: 2px solid #000;
+            padding: 20px;
+            display: inline-block;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Today's Prediction</h1>
+    <div class="prediction-box">
+        <p id="prediction">Loading...</p>
+        <p><small>Last Updated: <span id="timestamp"></span></small></p>
+    </div>
+    
+    <script>
+        const predictions = [
+            "You will receive good news soon!",
+            "An opportunity will come your way.",
+            "Someone from your past will reconnect with you.",
+            "A financial gain is in your future.",
+            "Be ready for an exciting adventure."
+        ];
+
+
+        function updatePrediction() {
+            const randomIndex = Math.floor(Math.random() * predictions.length);
+            document.getElementById("prediction").innerText = predictions[randomIndex];
+            document.getElementById("timestamp").innerText = new Date().toLocaleString();
+        }
+        
+        updatePrediction(); 
+        setInterval(updatePrediction, 10000); // Updates every 10 seconds
+    </script>
+</body>
+</html>
